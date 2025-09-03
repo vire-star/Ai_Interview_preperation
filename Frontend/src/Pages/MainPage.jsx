@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const MainPage = () => {
   return (
@@ -45,7 +46,7 @@ const MainPage = () => {
           transition={{ delay: 1, duration: 0.8 }}
         >
           <Button className="capitalize px-6 py-3 text-lg rounded-xl bg-[#003c9c] hover:bg-[#002663] shadow-lg">
-            Get Started
+            <Link to='/session'>Get Started</Link>
           </Button>
         </motion.div>
       </motion.div>
