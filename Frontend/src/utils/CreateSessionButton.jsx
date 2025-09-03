@@ -18,7 +18,7 @@ const CreateSessionButton = () => {
 
   const createSessionApi = async (formdata) => {
     const res = await axios.post(
-      "http://localhost:3000/api/v1/session/createSession",
+      "https://ai-interview-preperation-1.onrender.com/api/v1/session/createSession",
       formdata,
       {
         headers: {

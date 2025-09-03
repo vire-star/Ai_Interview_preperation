@@ -12,7 +12,7 @@ import Logout from "./Logout";
 import UpdateProfile from "./UpdateProfile";
 const Profile = () => {
   const getProfile = async () => {
-    const res = await axios.get("http://localhost:3000/api/v1/user/getUser", {
+    const res = await axios.get("https://ai-interview-preperation-1.onrender.com/api/v1/user/getUser", {
       headers: {
         "Content-Type": "application/json",
       },

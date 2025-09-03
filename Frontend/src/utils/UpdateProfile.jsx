@@ -21,7 +21,7 @@ const UpdateProfile = () => {
   // API call
   const updateProfileApi = async (formData) => {
     const res = await axios.post(
-      "http://localhost:3000/api/v1/user/updateProfile",
+      "https://ai-interview-preperation-1.onrender.com/api/v1/user/updateProfile",
       formData,
       {
         withCredentials: true,

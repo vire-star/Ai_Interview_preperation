@@ -19,7 +19,7 @@ const AiQuestions = () => {
   // Fetch session details with questions
   const getSessionDetail = async () => {
     const res = await axios.get(
-      `http://localhost:3000/api/v1/session/getMySessionById/${param.id}`,
+      `https://ai-interview-preperation-1.onrender.com/api/v1/session/getMySessionById/${param.id}`,
       {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
@@ -36,7 +36,7 @@ const AiQuestions = () => {
   // Toggle pin API
   const togglePinApi = async (id) => {
     const res = await axios.post(
-      `http://localhost:3000/api/v1/question/toggleQuestion/${id}`,
+      `https://ai-interview-preperation-1.onrender.com/api/v1/question/toggleQuestion/${id}`,
       {},
       {
         headers: { "Content-Type": "application/json" },

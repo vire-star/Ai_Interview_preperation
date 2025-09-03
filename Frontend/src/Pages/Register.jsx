@@ -13,7 +13,7 @@ const Register = () => {
   // ✅ Register API call
   const registerApi = async (formdata) => {
     const res = await axios.post(
-      "http://localhost:3000/api/v1/user/register",
+      "https://ai-interview-preperation-1.onrender.com/api/v1/user/register",
       formdata,
       { withCredentials: true }
     );
