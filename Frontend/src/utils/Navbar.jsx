@@ -5,7 +5,7 @@ import Profile from "./Profile"
 
 const Navbar = () => {
   const {isAuthenitcate}=  useSelector((state)=>state.userReducer)
-  console.log(isAuthenitcate)
+  // console.log(isAuthenitcate)
   const navigate = useNavigate()
   const LoginRoute=()=>{
     navigate('/login')

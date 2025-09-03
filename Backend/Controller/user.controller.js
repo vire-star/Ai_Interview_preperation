@@ -95,15 +95,18 @@ export const getUser = async(req, res)=>{
         console.log(error)
     }
 }
-export const logOUt = async(req, res)=>{
-    try {
-        return res.cookie("token","", {maxAge:0}).json({
-            message:"User logged Out successfully"
-        })
-    } catch (error) {
-        console.log(`This error is coming from logOUt backend, error-->${error}`)
-    }
-}
+export const logOUt = (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,        // agar HTTPS hai (Render/Vercel to hamesha hota hai)
+    sameSite: "none",    // cross-site requests ke liye zaroori
+  });
+
+  return res.status(200).json({
+    success: true,
+    message: "User logged out successfully",
+  });
+};
 
 
 export const updateProfile = async(req,res)=>{

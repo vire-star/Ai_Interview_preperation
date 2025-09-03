@@ -2,6 +2,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { FaUser } from "react-icons/fa";
 import { IoLogOut, IoLogOutOutline } from "react-icons/io5";
+import { FaUserAlt } from "react-icons/fa";
 import {
   Popover,
   PopoverContent,
@@ -30,11 +31,11 @@ const Profile = () => {
     <Popover className="cursor-pointer">
       <div>
         <PopoverTrigger className="cursor-pointer">
-          <div className="h-10 w-[20vw]  overflow-hidden flex items-center justify-center gap-2">
+          <div className="h-10 w-[20vw]  overflow-hidden flex items-center justify-center gap-4">
             <h1 className="text-2xl  text-zinc-300 font-bold">
               {data?.user?.fullName}
             </h1>
-            {data?.user ? (
+            {data?.user?.profilPhoto ? (
               <div>
                 <img
                   src={data?.user?.profilPhoto}
@@ -43,11 +44,7 @@ const Profile = () => {
                 />
               </div>
             ) : (
-              <img
-                className="h-10 w-10"
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.tenforums.com%2Fattachments%2Fuser-accounts-family-safety%2F322690d1615743307t-user-account-image-log-user.png&f=1&nofb=1&ipt=d1afda26a6bbc8401833686c5a249633af19a89b782cd7328e6f8f9913931279"
-                alt=""
-              />
+             <FaUserAlt className="text-3xl text-zinc-300"/>
             )}
           </div>
         </PopoverTrigger>

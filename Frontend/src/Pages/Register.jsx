@@ -1,12 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
+  // ✅ Register API call
   const registerApi = async (formdata) => {
     const res = await axios.post(
       "http://localhost:3000/api/v1/user/register",
@@ -16,9 +20,23 @@ const Register = () => {
     return res.data;
   };
 
+  // ✅ Mutation hook
+  const mutation = useMutation({
+    mutationFn: registerApi,
+    onSuccess: (data) => {
+      // Success hone par session page pe le jao
+      // console.log("Register Success:", data);
+      navigate("/login");
+      toast.success("Registered successfully!");
+    },
+    onError: (error) => {
+      alert(error.response?.data?.message || "Something went wrong!");
+    },
+  });
+
+  // ✅ Form submit handler
   const registerFormHandler = (data) => {
-    console.log(data);
-    registerApi(data);
+    mutation.mutate(data);
   };
 
   return (
@@ -72,9 +90,10 @@ const Register = () => {
         {/* Submit Button */}
         <Button
           type="submit"
+          disabled={mutation.isPending}
           className="w-full mt-4 bg-[#003c9c] hover:bg-[#002663] text-white py-2 rounded-xl shadow-lg transition-all duration-300"
         >
-          Register
+          {mutation.isPending ? "Registering..." : "Register"}
         </Button>
 
         {/* Footer */}
